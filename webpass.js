@@ -185,3 +185,4 @@ addEvent(webpass.querySelector('#formwebpasswd'),'submit',function(evt){
 	}
 	return false;
 });
+})();
