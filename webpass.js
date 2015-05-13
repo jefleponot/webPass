@@ -131,8 +131,8 @@ webpass.innerHTML = (function () {/*
 	</div>
 	<label for="site">Site:</label><input type="text" required="" name="site" id="site" placeholder="le site de votre identifiant"/><br/>
 	<label for="passwd">Mot de passe:</label><input type="password" required="" name="passwd" id="passwd" placeholder="votre mot de passe" autofocus="autofocus"/><br/>
-	<label for="passwd">Caractères spéciaux:</label><input type="checkbox" name="speciaux" id="speciaux" placeholder="accepter les accents" checked="true" style="display:inline-block"/><br/>
-	<label for="renouvellement">Délai de renouvellement: </label><br/>
+	<label for="passwd">Caract&egrave;res sp&eacute;ciaux:</label><input type="checkbox" name="speciaux" id="speciaux" placeholder="accepter les accents" checked="true" style="display:inline-block"/><br/>
+	<label for="renouvellement">D&eacute;lai de renouvellement: </label><br/>
 	<select id="codeDate" name="renouvellement">
 		<option value="0" selected="selected">Aucun</option>
 		<option value="1">Mensuel</option>
@@ -144,7 +144,7 @@ webpass.innerHTML = (function () {/*
 		<input id="key" value=""/>
 	<span>
 	</span></span><br/>
-	<input type="submit" value="Générer"/>
+	<input type="submit" value="G&eacute;n&eacute;rer"/>
 </form>
 */}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
 
