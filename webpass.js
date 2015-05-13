@@ -223,9 +223,9 @@ addEvent(webpass.querySelector('#formwebpasswd'),'submit',function(evt){
 	webpass.querySelector('span #key').value =   passwd;
 	webpass.querySelector('span span').innerHTML = 	oldPasswd;
  
-	
-	a=zone;
-	zone.value=passwd;
+	if (zone){
+		zone.value=passwd;
+	}
 	return false;
 });
 
