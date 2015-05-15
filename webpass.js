@@ -170,9 +170,7 @@ function genWebPass(evt){
 	if (codeDate === 0){
 		operation = site+uniqPasswd;
 		code = CryptoJS.MD5(operation);
-		//passwd = code.toString(CryptoJS.enc.Base64);
-    //passwd = CryptoJS.enc.Utf8.stringify(code);
-
+		passwd = code.toString(CryptoJS.enc.Base64);
 		oldPasswd ="";
 	 } else {
 		var tab = hash_date(codeDate);
@@ -193,9 +191,10 @@ function genWebPass(evt){
 	
 	return true;
 }
-	addEvent(webpass.querySelector('#passwd'),'keyup',genWebPass);
-	addEvent(webpass.querySelector('select#codeDate'),'change',genWebPass);
-	addEvent(webpass.querySelector('input[name="speciaux"]'),'change',genWebPass);
+
+addEvent(webpass.querySelector('#passwd'),'keyup',genWebPass);
+addEvent(webpass.querySelector('select#codeDate'),'change',genWebPass);
+addEvent(webpass.querySelector('input[name="speciaux"]'),'change',genWebPass);
 						
 })();
 
