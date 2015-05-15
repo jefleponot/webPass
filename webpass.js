@@ -134,7 +134,7 @@ webpass.innerHTML = (function () {/*
 		<input id="key" value=""/>
 	<span>
 	</span></span><br/>
-	<input type="submit" value="G&eacute;n&eacute;rer"/>
+	<input type="submit" value="Recopier"/>
 </form>
 */}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
 
@@ -153,7 +153,15 @@ function addEvent(obj, type, fn, objParent){
 }
 
 addEvent(webpass.querySelector('#formwebpasswd'),'reset',function(evt){ document.getElementsByTagName('body')[0].removeChild(webpass);});
-addEvent(webpass.querySelector('#formwebpasswd'),'submit',function(evt){
+addEvent(webpass.querySelector('#formwebpasswd'),'submit',function(evt){ 
+if (zone){
+		zone.value=webpass.querySelector('span #key').value;
+	}			
+	document.getElementsByTagName('body')[0].removeChild(webpass);
+});
+					
+						
+function genWebPass(evt){
 	evt.preventDefault();
 	site = CryptoJS.MD5(webpass.querySelector('input[name="site"]').value);
 	uniqPasswd = CryptoJS.MD5(webpass.querySelector('input[name="passwd"]').value);
@@ -162,7 +170,9 @@ addEvent(webpass.querySelector('#formwebpasswd'),'submit',function(evt){
 	if (codeDate === 0){
 		operation = site+uniqPasswd;
 		code = CryptoJS.MD5(operation);
-		passwd = code.toString(CryptoJS.enc.Base64);
+		//passwd = code.toString(CryptoJS.enc.Base64);
+    //passwd = CryptoJS.enc.Utf8.stringify(code);
+
 		oldPasswd ="";
 	 } else {
 		var tab = hash_date(codeDate);
@@ -180,9 +190,12 @@ addEvent(webpass.querySelector('#formwebpasswd'),'submit',function(evt){
 	oldPasswd = oldPasswd.substring(0,12);
 	webpass.querySelector('span #key').value = passwd;
 	webpass.querySelector('span span').innerHTML = 	oldPasswd;
-	if (zone){
-		zone.value=passwd;
-	}
-	return false;
-});
+	
+	return true;
+}
+	addEvent(webpass.querySelector('#passwd'),'keyup',genWebPass);
+	addEvent(webpass.querySelector('select#codeDate'),'change',genWebPass);
+	addEvent(webpass.querySelector('input[name="speciaux"]'),'change',genWebPass);
+						
 })();
+
