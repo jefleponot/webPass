@@ -1,6 +1,8 @@
 # webPass
 WebPass is a bookmarklet and runs right in your Web browser. "Remember One single password and open all your web access".It never stores or transmits your passwords, so it’s ideal for use on multiple and public computers. It’s also completely free and open-sourced on GitHub. 
 
+http://jefleponot.github.io/webPass
+
 [![Build status][build-status]][travis-ci]
 
 [![SauceLabs status][saucelabs-status]][saucelabs]
