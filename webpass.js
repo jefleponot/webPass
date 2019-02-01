@@ -165,7 +165,7 @@ function genWebPass(evt){
 	evt.preventDefault();
 	site = CryptoJS.MD5(webpass.querySelector('input[name="site"]').value);
 	uniqPasswd = CryptoJS.MD5(webpass.querySelector('input[name="passwd"]').value);
-	codeDate = webpass.querySelector('select#codeDate').value;
+	codeDate = parseInt(webpass.querySelector('select#codeDate').value);
 	speciaux = webpass.querySelector('input[name="speciaux"]').checked;
 	if (codeDate == 0){
 		operation = site+uniqPasswd;
